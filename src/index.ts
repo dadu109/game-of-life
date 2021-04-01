@@ -2,11 +2,19 @@ import Game from './game/Game'
 import { GameConfig } from './game/types'
 
 const config: GameConfig = {
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 900,
     tileSize: 20,
-    primaryColor: "rgb(100, 240, 150)",
-    secondaryColor: "#FF0055"
+    primaryColor: "#fff",
+    secondaryColor: "#fff"
 }
 
-new Game(config).init()
+const game = new Game(config)
+game.init();
+
+document.querySelector('#toggle').addEventListener('click', () => {
+    game.toggleGameState();
+})
+document.querySelector('#nextGen').addEventListener('click', () => {
+    game.nextGeneration();
+})
